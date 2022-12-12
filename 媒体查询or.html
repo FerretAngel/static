@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        * {
+            font-size: 2rem;
+        }
+
+        /* screen and (orientation: landscape) , */
+        @media (min-width: 600px) {
+            .or {
+                color: red;
+            }
+        }
+
+        /* 是横屏状态执行 */
+        @media screen and (orientation : landscape) {
+            .landscape {
+                color: aquamarine;
+            }
+        }
+
+        /* 非横屏状态执行 */
+        @media not screen and (orientation : landscape) {
+            .notLandscape {
+                color: greenyellow;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="or">or</div>
+    <div class="landscape">landscape</div>
+    <div class="notLandscape">notLandscape</div>
+</body>
+
+</html>

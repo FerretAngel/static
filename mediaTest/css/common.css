@@ -1,0 +1,31 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+}
+:root{
+  font-size: 15px;
+}
+@media (prefers-color-scheme:light) {
+  :root{
+    --background-color:#fff;
+    --theme-color:skyblue;
+    --first-title-color:rgba(0,0,0,0.8);
+    --second-title-color:rgba(0,0,0,0.6);
+    --third-title-color:rgba(0,0,0,0.3);
+  }
+}
+@media (prefers-color-scheme:dark) {
+  :root {
+    --background-main-color: #3f3f3f;
+    --theme-color:pink;
+    --title-color: rgba(255, 255, 255, 0.8);
+    --title-second-color: rgba(255, 255, 255, 0.6);
+    --title-third-color: rgba(255, 255, 255, 0.3);
+  }
+}

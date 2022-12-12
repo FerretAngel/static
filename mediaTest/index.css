@@ -1,0 +1,7 @@
+
+@import url(./css/common.css);
+@import url(./css/navbar.css);
+@import url(./css/small-x.css) only screen and (max-width : 600px);
+@import url(./css/small.css) only screen and (min-width : 600px);
+@import url(./css/medium.css) only screen and (min-width : 900px);
+@import url(./css/big.css) only screen and (min-width : 1200px);

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+  <meta charset='UTF-8'>
+  <title>Document</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      background: url("https://cdn.pixabay.com/photo/2016/11/06/23/51/buildings-1804479_960_720.jpg");
+      display: flex;
+      background-size: cover;
+      background-repeat: no-repeat;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box {
+      position: relative;
+      width: 50%;
+      height: 50%;
+      /* 背景虚化 */
+      backdrop-filter: blur(100px);
+      border-radius: 20px;
+      color: white;
+      font-size: 30px;
+      font-weight: 600;
+      /* 字体间距 */
+      letter-spacing: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .wirtting {
+      position: relative;
+      /* 只显示一行 */
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0em;
+      /* 动画 3s 无限循环 */
+      animation: widthTrasform 3s infinite;
+    }
+
+    .wirtting::before {
+      content: "";
+      height: 100%;
+      width: 0.1em;
+      background-color: #fff;
+      border-radius: 10em;
+      position: absolute;
+      right: 0;
+      animation: flashing .8s infinite;
+    }
+
+    @keyframes widthTrasform {
+      0%,100%{
+        width: 0em;
+      }
+
+      70% {
+        width: 13em;
+      }
+    }
+
+    @keyframes flashing {
+      0%,100% {
+        opacity: 1;
+      }
+
+      30% {
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <!-- 打字效果的思路 -->
+    <!-- 1.把元素宽度设置为0 -->
+    <!-- 2.把元素字体设置为一行显示 -->
+    <!-- 3.把元素超出部分隐藏 -->
+    <!-- 4.动画：把元素宽度设置为全部显示 -->
+    <span class="wirtting">this is a string.</span>
+    <!-- 光标闪烁效果思路 -->
+    <!-- 1.利用伪类元素 -->
+    <!-- 2.通过绝对定位固定在右边 -->
+    <!-- 3.动画：通过调节透明度来实现闪烁效果 -->
+  </div>
+
+</body>
+
+</html>

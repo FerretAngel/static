@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            width: 200px;
+            height:200px;
+            position: relative;
+
+        }
+
+        .box>div {
+            width: 100%;
+            height: 5%;
+            background-color: #3f3f3f;
+            border-radius: 20px;
+            position: absolute;
+            transition: all .3s;
+        }
+
+        .box>div:nth-child(2) {
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 绝对定位的写法 */
+        }
+
+        .topRetate {
+            transform-origin: 111% 538%;
+            transform: rotate(-45deg);
+        }
+
+        .centerRotate {
+            transform: translate(-50%, -50%) rotate(45deg) !important;
+        }
+
+        .bottomRotate {
+            transform-origin: -20% -450%;
+            transform: rotate(-45deg);
+        }
+
+        .box>div:nth-child(1) {
+            right: 0%;
+            top: 0;
+        }
+
+        .box>div:nth-child(3) {
+            left: 0%;
+            bottom: 0;
+        }
+
+        .box>div:nth-child(1),
+        .box>div:nth-child(3) {
+            width: 50% !important;
+            /* !important提高优先级 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box" id="box" onclick="rotate_line()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <script>
+        let isRotate = false;
+        function rotate_line() {
+            let line = document.getElementById("box").childNodes;
+            console.log(line)
+            line[1].className = `${isRotate ? '' : 'topRetate'}`
+            line[3].className = `${isRotate ? '' : 'centerRotate'}`
+            line[5].className = `${isRotate ? '' : 'bottomRotate'}`
+            isRotate = !isRotate
+        }
+
+    </script>
+</body>
+
+</html>

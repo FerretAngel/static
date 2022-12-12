@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang='zh-CN'>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>节流</h3>
+    <h5>输入延时触发事件</h5>
+    <div>
+        <input type="text" id="input">
+        <button onclick="myClick()">搜索</button>
+    </div>
+    <h3>防抖</h3>
+    <h5>事件响应后才可再次触发事件</h5>
+    <div>
+        <button id="buyBtn">抢购</button>
+    </div>
+</body>
+<script>
+    
+    //节流
+    let timeOut_input = null;
+
+    document.getElementById("input").addEventListener("keyup", (event) => {
+        if (timeOut_input != null) {
+            clearTimeout(timeOut_input)
+        }
+        timeOut_input = setTimeout(() => {
+            console.log("输入值：", event.target.value);
+        }, 1000)
+
+    })
+
+    //防抖
+    let timeOut_btn = null;
+    document.getElementById("buyBtn").addEventListener("click", (event) => {
+        if (timeOut_btn != null) {
+            return
+        }
+        timeOut_btn = setTimeout(() => {
+            //费时的操作
+            setTimeout(() => {
+                console.log("事件处理完毕");
+                timeOut_btn = null;
+            }, 1000)
+        }, 100)
+    })
+</script>
+
+</html>
